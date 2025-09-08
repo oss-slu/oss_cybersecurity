@@ -10,12 +10,12 @@ signature = input("Enter signature (hex): ")
 working_directory = os.getcwd()
 
 file_path = os.path.abspath(filename)
-with open(file_path, 'r') as f:
+with open(file_path, 'rb') as f:
     file_to_sign = f.read()
 
 key = RSA.import_key(open(os.path.abspath("private.pem"), 'rb').read())
 h = SHA3_256.new()
-h.update(file_to_sign.encode())
+h.update(file_to_sign)
 
 bytes_signature = bytes.fromhex(signature)
 
