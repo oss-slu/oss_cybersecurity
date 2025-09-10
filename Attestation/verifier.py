@@ -21,9 +21,10 @@ with open(file_path, 'rb') as f:
 
 key = RSA.import_key(open(os.path.abspath("private.pem"), 'rb').read())
 h = SHA3_256.new()
-h.update(text)
+h.update(text.encode())
 
 bytes_signature = bytes.fromhex(signature)
+print("The document hash is: ", h.hexdigest())
 
 verifier = pss.new(key)
 try:
