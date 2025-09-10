@@ -2,6 +2,7 @@ from Crypto.Signature import pss
 from Crypto.Hash import SHA3_256
 from Crypto.PublicKey import RSA
 import os
+import PyPDF2
 
 
 filename = input("Enter filename: ")
@@ -10,12 +11,17 @@ signature = input("Enter signature (hex): ")
 working_directory = os.getcwd()
 
 file_path = os.path.abspath(filename)
+
+text = ''
 with open(file_path, 'rb') as f:
-    file_to_sign = f.read()
+    reader = PyPDF2.PdfReader(f)
+    for page_num in range(len(reader.pages)):
+        page = reader.pages[page_num]
+        text += page.extract_text()
 
 key = RSA.import_key(open(os.path.abspath("private.pem"), 'rb').read())
 h = SHA3_256.new()
-h.update(file_to_sign)
+h.update(text)
 
 bytes_signature = bytes.fromhex(signature)
 
