@@ -27,7 +27,7 @@ Our organizational wide security policy can be found in any repository with acti
 
 If you are a developer who is recieving a security alert that you don't understand, please swing by our [Slack channel](https://oss-slu.slack.com/archives/C09BYDT9HNH) where you can ask the security team questions and we'll be happy to assist.
 For urgent requests please alert the Lead (Samuel Kann) or the Program Director (Daniel Shown) directly either via Slack or email. For specific alerts, please point us to the alert number, **do not post the vulnerability in our public Slack channel**.
-For non-urgent requests, expect a response within 24-28 hours.
+For non-urgent requests, expect a response within 24-48 hours.
 
 ### Security Reporting
 
