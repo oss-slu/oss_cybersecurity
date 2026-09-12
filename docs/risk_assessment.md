@@ -3,7 +3,7 @@
 ------------------
 ## Purpose
 
-This register lists common security risks affecting Open Source w/ SLU. It is a starting point for future security planning, not a complete assessment. Every risk below comes from the existing cybersecurity documentation in this repository (see [Sources](#sources)).
+This register lists common security risks affecting Open Source w/ SLU. It is a starting point for future security planning, not a complete assessment. Every risk below comes from the existing cybersecurity documentation in this repository.
 
 ## How to Use This Register
 
