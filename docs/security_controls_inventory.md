@@ -1,8 +1,8 @@
-# Security Controls Inventory — Open Source w/ SLU
+# Security Controls Inventory — Open Source with SLU
 
-This document lists the security controls currently documented for Open Source w/ SLU, based
+This document lists the security controls currently documented for Open Source with SLU, based
 on the Access Control Policy, Incident Response Plan, Team Working Agreement, SAML Impact
-Report, and Spring 2026 Roadmap. It's a starting point for future team members, not a full
+Report, and Fall 2026 Roadmap. It's a starting point for future team members, not a full
 audit — individual repository settings (branch protection, Secret Scanning toggles, etc.) were
 not checked directly. Anything not confirmed against actual settings is marked TBD.
 
