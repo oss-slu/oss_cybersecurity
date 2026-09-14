@@ -39,14 +39,3 @@ Significant work identified during this review should be documented as future wo
 | MithraDAT | `oss-slu/mithridatium` | None found | Missing | No threat model or security risk assessment located during September 2026 review. |
 | CV Zebrafish | `oss-slu/cv_zebrafish` | None found | Missing | No threat model or security risk assessment located during September 2026 review. |
 | Pilot Data Synchronization | `oss-slu/PilotDataSynchronization` | None found | Missing | No threat model or security risk assessment located during September 2026 review. |
-
-## Future Work
-
-- Create initial threat models for projects marked **Missing** above.
-- Prioritize threat-model creation for projects handling sensitive data, authentication, infrastructure, or other high-impact security concerns.
-- Update the GradEval360 README to remove its stale Spring 2026 project-focus reference.
-- Re-review threat models after significant architecture, authentication, authorization, or deployment changes and at semester handoff.
-
-## Review Scope
-
-Active products were identified using the Fall 2026 Client-Based Project Abstracts. Projects listed under the separate "Potential Teams" section were excluded because the document states that they may or may not run during the semester.
