@@ -17,11 +17,11 @@ Below is an outline of where you can find specific security information.
 
 ### Security Documentation
 
-All of our publicly available security and compliance documentation will be available on our website, which is currently under development. We will provide a timeline of when to expect that when we get closer to releasing it.
+All of our publicly available security and compliance documentation will be available on our [website](https://oss-slu.github.io/oss_cybersecurity/). We will provide a timeline of when to expect that when we get closer to releasing it. See [`docs/security_controls_inventory.md`](docs/security_controls_inventory.md).
 
 ### Security Policy
 
-Our organizational wide security policy can be found in any repository with actively developing projects. You can find more detailed documentation on how to report issues in our `SECURITY.md` file on this repository, and on our website once that is finished.
+Our organizational wide security policy can be found in any repository with actively developing projects. You can find more detailed documentation on how to report issues in our `SECURITY.md` file on this repository, and on our [website](https://oss-slu.github.io/oss_cybersecurity/)
 
 ### Security Alert/Response Help
 
