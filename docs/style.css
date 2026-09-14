@@ -1,0 +1,79 @@
+/* ================================
+   Saint Louis University Branding
+   ================================ */
+
+:root {
+    /* SLU Primary Colors */
+    --slu-blue: #003DA5;
+    --slu-light-blue: #6FA8DC;
+    --slu-gray: #E5E5E5;
+    --slu-dark-gray: #333333;
+
+    /* Neutral Theme Colors */
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --link-color: var(--slu-blue);
+    --header-bg: white;
+    --header-text: var(--slu-blue);
+}
+
+
+
+/* ================================
+   Global Styles
+   ================================ */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    margin-bottom: 30px;
+    background: var(--header-bg);
+    padding: 20px;
+    border-bottom: 3px solid var(--slu-blue);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ================================
+   Logo Styling
+   ================================ */
+
+header img.logo {
+    height: 60px;
+    width: auto;
+}
+
+/* ================================
+   Navigation
+   ================================ */
+
+nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* ================================
+   Sections
+   ================================ */
+
+section {
+    margin-bottom: 30px;
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: var(--slu-dark-gray);
+}
