@@ -36,17 +36,21 @@ Each package's path in the SBOM starts with `/server/` or `/client-app/`, so you
 
 ## How Syft was installed and run
 
-Syft was installed with Homebrew on macOS:
+Recommended — reproducible, pinned Syft installer (works on macOS and Linux):
 
 ```bash
-brew install syft
-syft version   # 1.52.0 was used
+# Use Anchore's installer and pin the Syft version used to generate the SBOM:
+curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b ~/.local/bin v1.52.0
+~/.local/bin/syft version   # should print v1.52.0
 ```
 
-Without Homebrew (for example on Linux), use Anchore's install script and pin the same version:
+Optional Homebrew note:
 
 ```bash
-curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b ~/.local/bin v1.52.0
+# Homebrew installs whatever version is currently available in the formula and is not
+# guaranteed to match the SBOM's pinned version. Use the installation above for exact reproducibility.
+brew install syft
+syft version
 ```
 
 Syft scans files on the local disk and uploads nothing. Its only network call is a check for a newer Syft release.
@@ -74,7 +78,7 @@ git archive HEAD server client-app | tar -x -C "$STAGE"
 #    it doesn't change which packages are installed.
 (cd "$STAGE/server" && npm install --ignore-scripts)
 (cd "$STAGE/client-app" && npm install --legacy-peer-deps --ignore-scripts \
-  && npm install ajv@8.20.0 --legacy-peer-deps --ignore-scripts
+  && npm install ajv@8.20.0 --legacy-peer-deps --ignore-scripts)
 
 # 4. Generate the SBOM. Run it from inside $STAGE so paths start at /server and /client-app.
 cd "$STAGE"
@@ -121,11 +125,11 @@ These came up while checking the SBOM. They aren't vulnerabilities, but each one
 
 - **Not the built images.** The SBOM doesn't include anything from the base images (`node:20`, `node:18`, `postgres:16.2`): no Debian packages, no Node.js binary, and no npm or Yarn installed there. Scanning the published GHCR images, which issue #36 covers, would include these.
 - **Database image not covered.** It's the stock `postgres:16.2` image plus SQL scripts, with no application dependencies.
-- **Root `package.json` not covered.** The repository root has its own `package.json` and lockfile (`bwip-js`, `cors`, `express`, `concurrently`, `prettier`, `serve`) for local development scripts. Neither Dockerfile copies it into an image, so it was left out.
-- **Different Node and npm versions.** Packages were installed with Node 24.6.0 and npm 11.5.1. The images use Node 20 and Node 18 with their bundled npm. The server tree matched its lockfile exactly. The client tree matched its lockfile except for the changes made by the Dockerfile's `ajv@8` step and `--legacy-peer-deps`, and the real build makes those same changes. An older npm could still install a few packages at different paths.
-- **Install scripts skipped.** Because of `--ignore-scripts`, and because `npx prisma generate` wasn't run, some build outputs aren't on disk, such as the compiled `bcrypt` addon and the downloaded Prisma engines. Every package is still listed.
-- **A snapshot of one commit.** The SBOM describes commit `5f89612`. Dependabot updates Material Derailleur's `main` often, so the SBOM will go out of date. Issue #36 tracks generating SBOMs automatically in CI.
-- **Repeated package names are expected.** npm installs different versions of a package in different places, for example `react@19.2.5` in the client and `react@18.3.1` nested under `my-tailwind-app`. Each installed copy is a separate entry, which is why 3,480 entries contain only 2,393 unique name/version pairs.
+- **Root `package.json` not covered.** The repository root has its own `package.json` and lockfile (`bwip-js`, `cors`, `express`, `concurrently`, `prettier`, `serve`) for local development scripts, not the application containers.
+- **Different Node and npm versions.** Packages were installed with Node 24.6.0 and npm 11.5.1. The images use Node 20 and Node 18 with their bundled npm. The server tree matched its lockfile exactly, and the client tree matched with the pinned `ajv@8.20.0` override.
+- **Install scripts skipped.** Because of `--ignore-scripts`, and because `npx prisma generate` wasn't run, some build outputs aren't on disk, such as the compiled `bcrypt` addon and the downloaded Prisma engine.
+- **A snapshot of one commit.** The SBOM describes commit `5f89612`. Dependabot updates Material Derailleur's `main` often, so the SBOM will go out of date. Issue #36 tracks generating SBOMs automatically.
+- **Repeated package names are expected.** npm installs different versions of a package in different places, for example `react@19.2.5` in the client and `react@18.3.1` nested under `my-tailwind-*` or other tooling.
 - **License data wasn't reviewed.** License fields come straight from each package's own `package.json`.
 
 ---
