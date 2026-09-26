@@ -74,7 +74,7 @@ git archive HEAD server client-app | tar -x -C "$STAGE"
 #    it doesn't change which packages are installed.
 (cd "$STAGE/server" && npm install --ignore-scripts)
 (cd "$STAGE/client-app" && npm install --legacy-peer-deps --ignore-scripts \
-  && npm install ajv@8 --legacy-peer-deps --ignore-scripts)
+  && npm install ajv@8.20.0 --legacy-peer-deps --ignore-scripts
 
 # 4. Generate the SBOM. Run it from inside $STAGE so paths start at /server and /client-app.
 cd "$STAGE"
