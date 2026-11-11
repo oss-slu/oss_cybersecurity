@@ -19,6 +19,8 @@ Below is an outline of where you can find specific security information.
 
 All of our publicly available security and compliance documentation will be available on our [website](https://oss-slu.github.io/oss_cybersecurity/). We will provide a timeline of when to expect that when we get closer to releasing it. See [`docs/security_controls_inventory.md`](docs/security_controls_inventory.md).
 
+- **[Dependency Pinning and Deterministic Lockfile Guide](docs/standards/dependency-pinning-guide.md)** – Mandatory supply chain standard, CI linters, and ecosystem conventions for deterministic package locking across Python, Node.js, Rust, and Go.
+
 ### Security Policy
 
 Our organizational wide security policy can be found in any repository with actively developing projects. You can find more detailed documentation on how to report issues in our `SECURITY.md` file on this repository, and on our [website](https://oss-slu.github.io/oss_cybersecurity/)
