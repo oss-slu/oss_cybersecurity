@@ -1,0 +1,71 @@
+# Weekly branch protection drift check for the OSS-SLU candidate repositories (oss-slu/oss_cybersecurity#66).
+#
+# - Runs the unit tests for the auditor.
+# - Audits every repository in scripts/branch_protection_candidates.txt with read-only API calls.
+# - Writes the compliance matrix to the job summary and uploads the JSON results as an artifact.
+# - Fails if any control got weaker than the committed snapshot
+#   (docs/audits/branch_protection_audit_fall2026.json), so a regression shows up as a red run.
+#
+# Token: the default job token reads public repositories. To also see admin-only settings
+# (stale-approval dismissal, ruleset bypass lists), an org owner can add a fine-grained token
+# with "Administration: Read-only" on the candidate repositories as the secret BRANCH_AUDIT_TOKEN.
+
+name: Branch Protection Audit
+
+on:
+  schedule:
+    - cron: "17 13 * * 1" # Mondays 13:17 UTC
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".github/workflows/branch-protection-audit.yml"
+      - "scripts/audit_branch_protection.py"
+      - "scripts/branch_protection_candidates.txt"
+      - "scripts/enforce-branch-protection.sh"
+      - "docs/standards/branch-protection-baseline.ruleset.json"
+      - "docs/audits/branch_protection_audit_fall2026.json"
+      - "tests/test_audit_branch_protection.py"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: branch-protection-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Check the enforcement script and baseline ruleset
+        run: |
+          bash -n scripts/enforce-branch-protection.sh
+          jq -e '.rules | map(.type) | (index("deletion") != null) and (index("non_fast_forward") != null) and (index("pull_request") != null)' \
+            docs/standards/branch-protection-baseline.ruleset.json
+
+      - name: Audit branch protection
+        env:
+          GH_TOKEN: ${{ secrets.BRANCH_AUDIT_TOKEN || github.token }}
+        run: |
+          python3 scripts/audit_branch_protection.py \
+            --json branch-protection-audit.json \
+            --summary "$GITHUB_STEP_SUMMARY" \
+            --compare docs/audits/branch_protection_audit_fall2026.json \
+            --fail-on-regression
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: branch-protection-audit
+          path: branch-protection-audit.json
+          if-no-files-found: ignore
+          retention-days: 90
