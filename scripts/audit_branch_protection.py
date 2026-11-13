@@ -852,12 +852,19 @@ def render_issue_draft(result: dict, org: str, note: str = "") -> str:
         + ("does **not** meet the baseline." if failing else "meets the baseline on paper, but unreviewed changes still reached "
            f"`{branch}` during the audit window, so the rules are not working as a control yet."),
     ]
+    quick = [r for r in result["recommendations"] if r.startswith("Quick fix")]
+    others = [r for r in result["recommendations"] if not r.startswith("Quick fix")]
     if failing:
         lines += ["", "## Required"] + [f"- [ ] {g}" for g in result["baseline_gaps"]]
-    if result["recommendations"]:
-        lines += ["", "## Recommended" if failing else "## What to change"] + [f"- [ ] {r}" for r in result["recommendations"]]
+        lines += [f"\n**Fastest fix:** {q[len('Quick fix: '):]}" for q in quick]
+    else:
+        others = quick + others
+    if others:
+        lines += ["", "## Recommended" if failing else "## What to change"] + [f"- [ ] {r}" for r in others]
     if result["observations"]:
-        lines += ["", "## What the audit observed (counts only; no individuals are named)"] + [f"- {o}" for o in result["observations"]]
+        # PR numbers go in code spans so the issue does not add cross-reference events to old PRs.
+        lines += ["", "## What the audit observed (counts only; no individuals are named)"]
+        lines += ["- " + re.sub(r"#(\d+)", r"`#\1`", o) for o in result["observations"]]
     lines += ["", "## How to fix it (needs a repository admin, about 5 minutes)", ""]
     if failing:
         lines += [

@@ -314,6 +314,15 @@ class ReportingTests(unittest.TestCase):
         self.assertIn("- [ ] Block force pushes", draft)
         self.assertIn("scripts/enforce-branch-protection.sh --repo open-repo --apply", draft)
         self.assertIn("Note line.", draft)
+
+    def test_issue_draft_quick_fix_and_pr_numbers(self):
+        meta = [{"id": 3, "name": "main", "enforcement": "disabled", "source_type": "Repository", "target": "branch",
+                 "include": ["~ALL"], "rule_types": ["pull_request"]}]
+        prs = [{"number": 112, "author": "a", "merged_by": "a", "merged_at": "2026-09-01T00:00:00Z", "approvals": []}]
+        draft = audit.render_issue_draft(evaluate(rulesets_meta=meta, merged_prs=prs), "oss-slu")
+        self.assertIn("**Fastest fix:** ruleset “main”", draft)
+        self.assertIn("`#112`", draft)
+        self.assertNotIn(" #112", draft.replace("`#112`", ""))
         self.assertTrue(draft.rstrip().endswith("Disclosure: partially drafted with AI assistance."))
 
     def test_issue_draft_for_passing_repo_with_bypass(self):
