@@ -22,6 +22,7 @@ All of our publicly available security and compliance documentation will be avai
 - **[Dependency Pinning and Deterministic Lockfile Guide](docs/standards/dependency-pinning-guide.md)** – Mandatory supply chain standard, CI linters, and ecosystem conventions for deterministic package locking across Python, Node.js, Rust, and Go.
 - **[Branch Protection Guide](docs/standards/branch-protection-guide.md)** – Baseline protection for every project's default branch, an importable ruleset, and step-by-step fixes for project leads and students.
 - **[Branch Protection Compliance Matrix — Fall 2026](docs/audits/branch_protection_compliance_matrix_fall2026.md)** – Audit of the 22 candidate repositories, comparing configured settings with what actually reached `main`. Re-checked weekly by `scripts/audit_branch_protection.py`.
+- **[Case Study: Automating SBOMs and Build Attestation — Fall 2026](docs/case_studies/sbom_automation_case_study_fall2026.md)** – How SBOM automation went from 0 to 16 of 22 candidate repositories, why it worked in RepoExplorer and silently failed in Material Derailleur, and ten lessons for the next rollout.
 
 ### Security Policy
 
