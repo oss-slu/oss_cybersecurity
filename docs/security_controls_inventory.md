@@ -3,8 +3,9 @@
 This document lists the security controls currently documented for Open Source with SLU, based
 on the Access Control Policy, Incident Response Plan, Team Working Agreement, SAML Impact
 Report, and Fall 2026 Roadmap. It's a starting point for future team members, not a full
-audit — individual repository settings (branch protection, Secret Scanning toggles, etc.) were
-not checked directly. Anything not confirmed against actual settings is marked TBD.
+audit — individual repository settings (Secret Scanning toggles, etc.) were not checked
+directly. The exception is branch protection, which was audited across the candidate project
+repositories in Fall 2026. Anything not confirmed against actual settings is marked TBD.
 
 | Control | Description | Status |
 |---|---|---|
@@ -16,8 +17,8 @@ not checked directly. Anything not confirmed against actual settings is marked T
 | Mission-critical project controls (RBAC and Threat Model required) | Extra protections for important projects | Documented; current threat-model status is TBD |
 | Access reviews (start of semester, end of semester, and after incidents) | Catches accounts no longer matching active members | Documented; whether outside collaborators are included is TBD |
 | 48-hour offboarding requirement | Limits access window after a member leaves | Documented; not independently verified as followed |
-| CODEOWNERS file | Maps file paths to required reviewers | Present in repo; does not by itself enforce review |
-| Branch protection / required PR reviews | Stops unreviewed changes from reaching main | TBD — not covered by current documentation |
+| CODEOWNERS file | Maps file paths to required reviewers | Present in this repo; does not by itself enforce review. Across the 22 candidate project repositories (Fall 2026): present in 12, and code owner review is enforced in 9 |
+| Branch protection / required PR reviews | Stops unreviewed changes from reaching main | Audited Fall 2026 across the 22 candidate repositories ([matrix](audits/branch_protection_compliance_matrix_fall2026.md)). 17 meet the baseline (1 required review, force pushes and deletion blocked); none require CI checks. Unreviewed changes still reached main in 21 of 22, mostly through admin bypass. Baseline and remediation steps are in the [Branch Protection Guide](standards/branch-protection-guide.md); a workflow re-checks weekly |
 | SAML SSO | Centralizes identity verification for internal members | Tested in isolated test org; whether it's enforced on the live org is TBD |
 | No SAML requirement for external contributors | Preserves ability to accept outside contributions | Documented, tested |
 | GitHub Secret Scanning | Detects committed API keys, tokens, passwords | Expected; whether it's enabled on all active repos is TBD |

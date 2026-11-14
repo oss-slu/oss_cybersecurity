@@ -1,0 +1,27 @@
+# Candidate repositories for the branch protection audit (oss-slu/oss_cybersecurity#66).
+# These are the 22 candidates from the Phase 1 and Phase 2 Automated SBOM Generation work.
+# One repository name per line, owner oss-slu. Anything after '#' is ignored.
+# Used by scripts/audit_branch_protection.py and scripts/enforce-branch-protection.sh.
+
+civickit
+core_desk                  # listed as "CoreDesk" in #66
+cv_zebrafish
+dads
+DigitalBoneBox
+geo-enricher               # listed as "enroll-dash" in #66 (old name; GitHub redirects it)
+GradEval360
+lrda_mobile
+lrda_website
+material-derailleur        # MDMA / Material Donor Mutual Assist
+mechatronics-vr            # listed as "MechatronicsVR" in #66
+mithridatium
+oss_dev_analytics
+oss-orb
+oss-slu.github.io
+pao_surgery_simulator
+PilotDataSynchronization
+repoexplorer
+SpeechTranscription        # SALTIFY
+shelter_volunteers
+TheHealthApp
+TULIP

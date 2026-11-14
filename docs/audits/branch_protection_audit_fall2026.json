@@ -1,0 +1,2059 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-13T22:51:32Z",
+  "org": "oss-slu",
+  "window_start": "2026-08-01T00:00:00Z",
+  "window_end": "2026-11-13T22:51:32Z",
+  "baseline": {
+    "min_approving_reviews": 1,
+    "force_pushes": "blocked",
+    "deletions": "blocked"
+  },
+  "summary": {
+    "candidates": 22,
+    "found": 22,
+    "not_found": 0,
+    "active": 22,
+    "pass": 17,
+    "fail": 5,
+    "unknown": 0,
+    "active_pass": 17,
+    "reviews_required": 18,
+    "force_blocked": 19,
+    "deletion_blocked": 19,
+    "checks_required": 0,
+    "stale_dismissed": 5,
+    "stale_unknown": 12,
+    "codeowners_enforced": 9,
+    "codeowners_present": 12,
+    "admins_bound": 1,
+    "admins_not_bound": 5,
+    "unreviewed_changes": 21,
+    "direct_pushes": 200,
+    "force_pushes": 3,
+    "pr_merges": 738,
+    "unapproved_merges": 179,
+    "confirmed_bypasses": 72,
+    "confirmed_bypass_repos": 7,
+    "admin_access": 0
+  },
+  "results": [
+    {
+      "repo": "civickit",
+      "exists": true,
+      "full_name": "oss-slu/civickit",
+      "html_url": "https://github.com/oss-slu/civickit",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-10T03:22:29Z",
+      "access": "read",
+      "protection_source": "Classic + ruleset",
+      "classic": {
+        "pr_required": null,
+        "required_reviews": 0,
+        "dismiss_stale": false,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          12536113,
+          13306039
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 2,
+      "rulesets_meta": [
+        {
+          "id": 13306039,
+          "name": "Allow admin to merge own PRs",
+          "source_type": "Repository",
+          "source": "oss-slu/civickit",
+          "enforcement": "active",
+          "created_at": "2026-02-26T22:17:11.775-06:00",
+          "updated_at": "2026-09-14T20:14:13.452-05:00"
+        },
+        {
+          "id": 12536113,
+          "name": "Main Branch Protection",
+          "source_type": "Repository",
+          "source": "oss-slu/civickit",
+          "enforcement": "active",
+          "created_at": "2026-02-06T11:13:03.878-06:00",
+          "updated_at": "2026-07-24T10:38:21.077-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-07-24T15:38:21Z",
+        "approval_rule_in_force_since": "2026-07-24T15:38:21Z",
+        "confirmed_bypass_pushes": 0,
+        "direct_pushes": 0,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [],
+        "force_push_dates": [],
+        "pr_merges": 15,
+        "unapproved_merges": 14,
+        "unapproved_pr_numbers": [
+          202,
+          209,
+          210,
+          216,
+          226,
+          227,
+          228,
+          229,
+          231,
+          232,
+          233,
+          239,
+          243,
+          246
+        ],
+        "confirmed_bypass_merges": 14
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Code owner review is required but there is no CODEOWNERS file, so the requirement has no effect; add one",
+        "Require the repository's CI checks to pass before merging (2 active workflow(s), none required)"
+      ],
+      "observations": [
+        "14 PR(s) merged without an approval from someone other than the author (#202, #209, #210, #216, #226, #227, #228, #229, #231, #232 and 4 more); 14 merged after the approval ruleset was last changed on 2026-07-24"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "core_desk",
+      "exists": true,
+      "full_name": "oss-slu/core_desk",
+      "html_url": "https://github.com/oss-slu/core_desk",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-11T18:09:05Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 2,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 6,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-30",
+          "2026-09-10",
+          "2026-09-29"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 32,
+        "unapproved_merges": 12,
+        "unapproved_pr_numbers": [
+          217,
+          228,
+          229,
+          231,
+          234,
+          238,
+          242,
+          249,
+          261,
+          263,
+          266,
+          268
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (2 active workflow(s), none required)"
+      ],
+      "observations": [
+        "6 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "12 PR(s) merged without an approval from someone other than the author (#217, #228, #229, #231, #234, #238, #242, #249, #261, #263 and 2 more)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "cv_zebrafish",
+      "exists": true,
+      "full_name": "oss-slu/cv_zebrafish",
+      "html_url": "https://github.com/oss-slu/cv_zebrafish",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-10T06:01:23Z",
+      "access": "read",
+      "protection_source": "None",
+      "classic": null,
+      "rulesets": null,
+      "effective": {
+        "pr_required": false,
+        "required_reviews": null,
+        "dismiss_stale": false,
+        "code_owner_review": false,
+        "force_push_blocked": false,
+        "deletion_blocked": false,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 2,
+      "rulesets_meta": [
+        {
+          "id": 9355717,
+          "name": "main",
+          "source_type": "Repository",
+          "source": "oss-slu/cv_zebrafish",
+          "enforcement": "disabled",
+          "created_at": "2025-10-31T12:31:56.157-05:00",
+          "updated_at": "2025-10-31T12:32:19.331-05:00",
+          "target": "branch",
+          "include": [
+            "~ALL"
+          ],
+          "rule_types": [
+            "deletion",
+            "non_fast_forward",
+            "pull_request"
+          ]
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 0,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [],
+        "force_push_dates": [],
+        "pr_merges": 23,
+        "unapproved_merges": 7,
+        "unapproved_pr_numbers": [
+          112,
+          125,
+          131,
+          137,
+          140,
+          141,
+          144
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "FAIL",
+      "baseline_gaps": [
+        "Require a pull request with at least 1 approving review before merging",
+        "Block force pushes",
+        "Block deletion of `main`"
+      ],
+      "recommendations": [
+        "Quick fix: ruleset \u201cmain\u201d (deletion, non_fast_forward, pull_request) already covers `main` but its enforcement is `disabled`; set it to Active (Settings \u2192 Rules \u2192 Rulesets)",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (2 active workflow(s), none required)"
+      ],
+      "observations": [
+        "7 PR(s) merged without an approval from someone other than the author (#112, #125, #131, #137, #140, #141, #144)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "dads",
+      "exists": true,
+      "full_name": "oss-slu/dads",
+      "html_url": "https://github.com/oss-slu/dads",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-09T02:45:22Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": true
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": true
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 5,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 0,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [],
+        "force_push_dates": [],
+        "pr_merges": 16,
+        "unapproved_merges": 0,
+        "unapproved_pr_numbers": []
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (5 active workflow(s), none required)"
+      ],
+      "observations": [],
+      "unreviewed_changes": false
+    },
+    {
+      "repo": "DigitalBoneBox",
+      "exists": true,
+      "full_name": "oss-slu/DigitalBoneBox",
+      "html_url": "https://github.com/oss-slu/DigitalBoneBox",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-09T17:35:42Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 4,
+      "rulesets_meta": [
+        {
+          "id": 1826783,
+          "name": "Main branch PR",
+          "source_type": "Repository",
+          "source": "oss-slu/DigitalBoneBox",
+          "enforcement": "disabled",
+          "created_at": "2024-09-09T13:03:27.149-05:00",
+          "updated_at": "2024-11-04T22:07:58.995-06:00",
+          "target": "branch",
+          "include": [
+            "~DEFAULT_BRANCH"
+          ],
+          "rule_types": [
+            "deletion",
+            "non_fast_forward",
+            "pull_request"
+          ]
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 5,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-26",
+          "2026-09-27",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-10-12"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 34,
+        "unapproved_merges": 8,
+        "unapproved_pr_numbers": [
+          405,
+          491,
+          495,
+          496,
+          497,
+          502,
+          503,
+          505
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Quick fix: ruleset \u201cMain branch PR\u201d (deletion, non_fast_forward, pull_request) already covers `main` but its enforcement is `disabled`; set it to Active (Settings \u2192 Rules \u2192 Rulesets)",
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Require the repository's CI checks to pass before merging (4 active workflow(s), none required)"
+      ],
+      "observations": [
+        "5 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "8 PR(s) merged without an approval from someone other than the author (#405, #491, #495, #496, #497, #502, #503, #505)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "geo-enricher",
+      "exists": true,
+      "full_name": "oss-slu/geo-enricher",
+      "html_url": "https://github.com/oss-slu/geo-enricher",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T22:03:26Z",
+      "access": "read",
+      "protection_source": "Ruleset",
+      "classic": null,
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 0,
+        "dismiss_stale": false,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          22129152
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 0,
+        "dismiss_stale": false,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 7,
+      "rulesets_meta": [
+        {
+          "id": 22129152,
+          "name": "main",
+          "source_type": "Repository",
+          "source": "oss-slu/geo-enricher",
+          "enforcement": "active",
+          "created_at": "2026-09-02T12:08:50.248-05:00",
+          "updated_at": "2026-09-13T10:27:00.275-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-09-13T15:27:00Z",
+        "approval_rule_in_force_since": null,
+        "confirmed_bypass_pushes": 10,
+        "direct_pushes": 24,
+        "bot_pushes": 2,
+        "force_pushes": 1,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-28",
+          "2026-08-30",
+          "2026-08-31",
+          "2026-09-02",
+          "2026-09-13",
+          "2026-09-14",
+          "2026-10-02",
+          "2026-10-14",
+          "2026-10-20",
+          "2026-10-23",
+          "2026-10-25",
+          "2026-11-02",
+          "2026-11-13"
+        ],
+        "force_push_dates": [
+          "2026-10-20"
+        ],
+        "pr_merges": 31,
+        "unapproved_merges": 15,
+        "unapproved_pr_numbers": [
+          3,
+          4,
+          10,
+          11,
+          24,
+          33,
+          37,
+          39,
+          40,
+          43,
+          47,
+          48,
+          50,
+          51,
+          52
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "FAIL",
+      "baseline_gaps": [
+        "Require a pull request with at least 1 approving review before merging"
+      ],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Dismiss stale approvals when new commits are pushed",
+        "Require the repository's CI checks to pass before merging (7 active workflow(s), none required)"
+      ],
+      "observations": [
+        "24 direct push(es) to `main` by people since 2026-08-01, without a pull request; 10 came after the pull request ruleset was last changed on 2026-09-13, so they went around a rule already in force (check the ruleset's bypass list)",
+        "1 force push(es) to `main` since 2026-08-01",
+        "15 PR(s) merged without an approval from someone other than the author (#3, #4, #10, #11, #24, #33, #37, #39, #40, #43 and 5 more)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "GradEval360",
+      "exists": true,
+      "full_name": "oss-slu/GradEval360",
+      "html_url": "https://github.com/oss-slu/GradEval360",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T19:05:12Z",
+      "access": "read",
+      "protection_source": "Ruleset",
+      "classic": null,
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          12249075
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 1,
+      "rulesets_meta": [
+        {
+          "id": 12249075,
+          "name": "PR required on main branch",
+          "source_type": "Repository",
+          "source": "oss-slu/GradEval360",
+          "enforcement": "active",
+          "created_at": "2026-01-29T03:13:03.761-06:00",
+          "updated_at": "2026-04-23T22:58:22.627-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-04-24T03:58:22Z",
+        "approval_rule_in_force_since": "2026-04-24T03:58:22Z",
+        "confirmed_bypass_pushes": 2,
+        "direct_pushes": 2,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-04",
+          "2026-09-29"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 13,
+        "unapproved_merges": 2,
+        "unapproved_pr_numbers": [
+          62,
+          92
+        ],
+        "confirmed_bypass_merges": 2
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (1 active workflow(s), none required)"
+      ],
+      "observations": [
+        "2 direct push(es) to `main` by people since 2026-08-01, without a pull request; 2 came after the pull request ruleset was last changed on 2026-04-24, so they went around a rule already in force (check the ruleset's bypass list)",
+        "2 PR(s) merged without an approval from someone other than the author (#62, #92); 2 merged after the approval ruleset was last changed on 2026-04-24"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "lrda_mobile",
+      "exists": true,
+      "full_name": "oss-slu/lrda_mobile",
+      "html_url": "https://github.com/oss-slu/lrda_mobile",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-08T20:09:51Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 2,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 2,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 1,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 17,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-08",
+          "2026-09-03",
+          "2026-09-21",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-11-08"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 11,
+        "unapproved_merges": 4,
+        "unapproved_pr_numbers": [
+          289,
+          295,
+          296,
+          298
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Bind admins to the rules: turn on \u201cDo not allow bypassing the above settings\u201d so admins cannot push or merge without a review",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Require the repository's CI checks to pass before merging (1 active workflow(s), none required)"
+      ],
+      "observations": [
+        "17 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "4 PR(s) merged without an approval from someone other than the author (#289, #295, #296, #298)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "lrda_website",
+      "exists": true,
+      "full_name": "oss-slu/lrda_website",
+      "html_url": "https://github.com/oss-slu/lrda_website",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-12T23:31:26Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 1
+      },
+      "workflow_count": 7,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 9,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-08",
+          "2026-09-03",
+          "2026-09-09",
+          "2026-09-29",
+          "2026-09-30",
+          "2026-10-10",
+          "2026-10-11",
+          "2026-11-08"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 31,
+        "unapproved_merges": 4,
+        "unapproved_pr_numbers": [
+          354,
+          364,
+          366,
+          377
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Bind admins to the rules: turn on \u201cDo not allow bypassing the above settings\u201d so admins cannot push or merge without a review",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Require review from code owners (a CODEOWNERS file exists but is not enforced)",
+        "Fix 1 CODEOWNERS syntax/user error(s)",
+        "Require the repository's CI checks to pass before merging (7 active workflow(s), none required)"
+      ],
+      "observations": [
+        "9 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "4 PR(s) merged without an approval from someone other than the author (#354, #364, #366, #377)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "material-derailleur",
+      "exists": true,
+      "full_name": "oss-slu/material-derailleur",
+      "html_url": "https://github.com/oss-slu/material-derailleur",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T22:03:52Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 8,
+      "rulesets_meta": [
+        {
+          "id": 4775111,
+          "name": "Prod",
+          "source_type": "Repository",
+          "source": "oss-slu/material-derailleur",
+          "enforcement": "active",
+          "created_at": "2025-04-10T21:33:24.564-05:00",
+          "updated_at": "2025-04-10T21:33:24.564-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 4,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-10",
+          "2026-09-29",
+          "2026-10-12"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 203,
+        "unapproved_merges": 14,
+        "unapproved_pr_numbers": [
+          644,
+          700,
+          702,
+          718,
+          772,
+          773,
+          777,
+          795,
+          850,
+          852,
+          872,
+          874,
+          876,
+          877
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Require the repository's CI checks to pass before merging (8 active workflow(s), none required)"
+      ],
+      "observations": [
+        "4 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "14 PR(s) merged without an approval from someone other than the author (#644, #700, #702, #718, #772, #773, #777, #795, #850, #852 and 4 more)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "mechatronics-vr",
+      "exists": true,
+      "full_name": "oss-slu/mechatronics-vr",
+      "html_url": "https://github.com/oss-slu/mechatronics-vr",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-11T23:17:46Z",
+      "access": "read",
+      "protection_source": "Ruleset",
+      "classic": null,
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          9357695
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 3,
+      "rulesets_meta": [
+        {
+          "id": 9357695,
+          "name": "main branch protection",
+          "source_type": "Repository",
+          "source": "oss-slu/mechatronics-vr",
+          "enforcement": "active",
+          "created_at": "2025-10-31T13:51:46.298-05:00",
+          "updated_at": "2026-09-13T09:53:47.270-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-09-13T14:53:47Z",
+        "approval_rule_in_force_since": "2026-09-13T14:53:47Z",
+        "confirmed_bypass_pushes": 8,
+        "direct_pushes": 18,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-25",
+          "2026-08-26",
+          "2026-08-28",
+          "2026-09-09",
+          "2026-09-22",
+          "2026-09-28",
+          "2026-10-08",
+          "2026-10-13",
+          "2026-10-25"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 26,
+        "unapproved_merges": 1,
+        "unapproved_pr_numbers": [
+          103
+        ],
+        "confirmed_bypass_merges": 1
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Require the repository's CI checks to pass before merging (3 active workflow(s), none required)"
+      ],
+      "observations": [
+        "18 direct push(es) to `main` by people since 2026-08-01, without a pull request; 8 came after the pull request ruleset was last changed on 2026-09-13, so they went around a rule already in force (check the ruleset's bypass list)",
+        "1 PR(s) merged without an approval from someone other than the author (#103); 1 merged after the approval ruleset was last changed on 2026-09-13"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "mithridatium",
+      "exists": true,
+      "full_name": "oss-slu/mithridatium",
+      "html_url": "https://github.com/oss-slu/mithridatium",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-09T20:10:30Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 2,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 7,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-24",
+          "2026-09-28",
+          "2026-10-01",
+          "2026-10-11",
+          "2026-10-25",
+          "2026-10-26"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 39,
+        "unapproved_merges": 9,
+        "unapproved_pr_numbers": [
+          107,
+          114,
+          117,
+          133,
+          150,
+          167,
+          168,
+          171,
+          182
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (2 active workflow(s), none required)"
+      ],
+      "observations": [
+        "7 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "9 PR(s) merged without an approval from someone other than the author (#107, #114, #117, #133, #150, #167, #168, #171, #182)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "oss_dev_analytics",
+      "exists": true,
+      "full_name": "oss-slu/oss_dev_analytics",
+      "html_url": "https://github.com/oss-slu/oss_dev_analytics",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T22:22:00Z",
+      "access": "read",
+      "protection_source": "Classic + ruleset",
+      "classic": {
+        "pr_required": null,
+        "required_reviews": 0,
+        "dismiss_stale": false,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 0,
+        "dismiss_stale": true,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          8473340
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 0,
+        "dismiss_stale": true,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 5,
+      "rulesets_meta": [
+        {
+          "id": 8473340,
+          "name": "PR required on main branch",
+          "source_type": "Repository",
+          "source": "oss-slu/oss_dev_analytics",
+          "enforcement": "active",
+          "created_at": "2025-09-28T21:49:32.311-05:00",
+          "updated_at": "2026-11-13T16:21:43.260-06:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-11-13T22:21:43Z",
+        "approval_rule_in_force_since": null,
+        "confirmed_bypass_pushes": 0,
+        "direct_pushes": 0,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [],
+        "force_push_dates": [],
+        "pr_merges": 7,
+        "unapproved_merges": 7,
+        "unapproved_pr_numbers": [
+          237,
+          239,
+          242,
+          244,
+          248,
+          250,
+          253
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "FAIL",
+      "baseline_gaps": [
+        "Require a pull request with at least 1 approving review before merging"
+      ],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Require the repository's CI checks to pass before merging (5 active workflow(s), none required)"
+      ],
+      "observations": [
+        "7 PR(s) merged without an approval from someone other than the author (#237, #239, #242, #244, #248, #250, #253)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "oss-orb",
+      "exists": true,
+      "full_name": "oss-slu/oss-orb",
+      "html_url": "https://github.com/oss-slu/oss-orb",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-10-17T09:04:50Z",
+      "access": "read",
+      "protection_source": "None",
+      "classic": null,
+      "rulesets": null,
+      "effective": {
+        "pr_required": false,
+        "required_reviews": null,
+        "dismiss_stale": false,
+        "code_owner_review": false,
+        "force_push_blocked": false,
+        "deletion_blocked": false,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 1,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 16,
+        "bot_pushes": 5,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-15",
+          "2026-08-16",
+          "2026-08-28",
+          "2026-08-30",
+          "2026-08-31"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 2,
+        "unapproved_merges": 2,
+        "unapproved_pr_numbers": [
+          3,
+          7
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "FAIL",
+      "baseline_gaps": [
+        "Require a pull request with at least 1 approving review before merging",
+        "Block force pushes",
+        "Block deletion of `main`"
+      ],
+      "recommendations": [
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (1 active workflow(s), none required)"
+      ],
+      "observations": [
+        "16 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "2 PR(s) merged without an approval from someone other than the author (#3, #7)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "oss-slu.github.io",
+      "exists": true,
+      "full_name": "oss-slu/oss-slu.github.io",
+      "html_url": "https://github.com/oss-slu/oss-slu.github.io",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-11T12:14:54Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 2,
+      "rulesets_meta": [
+        {
+          "id": 19479850,
+          "name": "Code Quality Copilot review for default branch",
+          "source_type": "Repository",
+          "source": "oss-slu/oss-slu.github.io",
+          "enforcement": "disabled",
+          "created_at": "2026-07-21T16:20:37.073-05:00",
+          "updated_at": "2026-08-07T10:09:05.675-05:00",
+          "target": "branch",
+          "include": [
+            "~DEFAULT_BRANCH"
+          ],
+          "rule_types": [
+            "copilot_code_review"
+          ]
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 0,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [],
+        "force_push_dates": [],
+        "pr_merges": 33,
+        "unapproved_merges": 29,
+        "unapproved_pr_numbers": [
+          296,
+          306,
+          307,
+          309,
+          311,
+          313,
+          314,
+          315,
+          316,
+          317,
+          318,
+          326,
+          327,
+          328,
+          329,
+          330,
+          331,
+          332,
+          333,
+          334,
+          335,
+          336,
+          338,
+          340,
+          341,
+          342,
+          345,
+          346,
+          347
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (2 active workflow(s), none required)"
+      ],
+      "observations": [
+        "29 PR(s) merged without an approval from someone other than the author (#296, #306, #307, #309, #311, #313, #314, #315, #316, #317 and 19 more)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "pao_surgery_simulator",
+      "exists": true,
+      "full_name": "oss-slu/pao_surgery_simulator",
+      "html_url": "https://github.com/oss-slu/pao_surgery_simulator",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-09T23:09:41Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 3,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 28,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-14",
+          "2026-08-26",
+          "2026-08-28",
+          "2026-08-31",
+          "2026-09-09",
+          "2026-09-17",
+          "2026-09-22",
+          "2026-09-28",
+          "2026-10-08",
+          "2026-10-25",
+          "2026-11-07"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 43,
+        "unapproved_merges": 1,
+        "unapproved_pr_numbers": [
+          134
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Bind admins to the rules: turn on \u201cDo not allow bypassing the above settings\u201d so admins cannot push or merge without a review",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Require review from code owners (a CODEOWNERS file exists but is not enforced)",
+        "Require the repository's CI checks to pass before merging (3 active workflow(s), none required)"
+      ],
+      "observations": [
+        "28 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "1 PR(s) merged without an approval from someone other than the author (#134)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "PilotDataSynchronization",
+      "exists": true,
+      "full_name": "oss-slu/PilotDataSynchronization",
+      "html_url": "https://github.com/oss-slu/PilotDataSynchronization",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T18:49:03Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 1
+      },
+      "workflow_count": 4,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 0,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [],
+        "force_push_dates": [],
+        "pr_merges": 35,
+        "unapproved_merges": 1,
+        "unapproved_pr_numbers": [
+          226
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Bind admins to the rules: turn on \u201cDo not allow bypassing the above settings\u201d so admins cannot push or merge without a review",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Fix 1 CODEOWNERS syntax/user error(s)",
+        "Require the repository's CI checks to pass before merging (4 active workflow(s), none required)"
+      ],
+      "observations": [
+        "1 PR(s) merged without an approval from someone other than the author (#226)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "repoexplorer",
+      "exists": true,
+      "full_name": "oss-slu/repoexplorer",
+      "html_url": "https://github.com/oss-slu/repoexplorer",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T22:03:39Z",
+      "access": "read",
+      "protection_source": "Ruleset",
+      "classic": null,
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": false,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          22989015
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": false,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 9,
+      "rulesets_meta": [
+        {
+          "id": 22989015,
+          "name": "main",
+          "source_type": "Repository",
+          "source": "oss-slu/repoexplorer",
+          "enforcement": "active",
+          "created_at": "2026-09-11T19:53:20.521-05:00",
+          "updated_at": "2026-09-12T09:12:32.478-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-09-12T14:12:32Z",
+        "approval_rule_in_force_since": "2026-09-12T14:12:32Z",
+        "confirmed_bypass_pushes": 11,
+        "direct_pushes": 25,
+        "bot_pushes": 6,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-31",
+          "2026-09-01",
+          "2026-09-02",
+          "2026-09-03",
+          "2026-09-09",
+          "2026-09-10",
+          "2026-09-12",
+          "2026-09-28",
+          "2026-10-14",
+          "2026-10-17",
+          "2026-10-18",
+          "2026-10-19",
+          "2026-10-20",
+          "2026-10-23",
+          "2026-11-02",
+          "2026-11-09"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 48,
+        "unapproved_merges": 10,
+        "unapproved_pr_numbers": [
+          13,
+          15,
+          24,
+          25,
+          45,
+          92,
+          99,
+          101,
+          102,
+          103
+        ],
+        "confirmed_bypass_merges": 6
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Dismiss stale approvals when new commits are pushed",
+        "Require the repository's CI checks to pass before merging (9 active workflow(s), none required)"
+      ],
+      "observations": [
+        "25 direct push(es) to `main` by people since 2026-08-01, without a pull request; 11 came after the pull request ruleset was last changed on 2026-09-12, so they went around a rule already in force (check the ruleset's bypass list)",
+        "10 PR(s) merged without an approval from someone other than the author (#13, #15, #24, #25, #45, #92, #99, #101, #102, #103); 6 merged after the approval ruleset was last changed on 2026-09-12"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "SpeechTranscription",
+      "exists": true,
+      "full_name": "oss-slu/SpeechTranscription",
+      "html_url": "https://github.com/oss-slu/SpeechTranscription",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-03T11:02:46Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": false,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 4,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 3,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-24",
+          "2026-09-29"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 17,
+        "unapproved_merges": 9,
+        "unapproved_pr_numbers": [
+          318,
+          321,
+          323,
+          325,
+          326,
+          336,
+          340,
+          343,
+          346
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Require review from code owners (a CODEOWNERS file exists but is not enforced)",
+        "Require the repository's CI checks to pass before merging (4 active workflow(s), none required)"
+      ],
+      "observations": [
+        "3 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "9 PR(s) merged without an approval from someone other than the author (#318, #321, #323, #325, #326, #336, #340, #343, #346)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "shelter_volunteers",
+      "exists": true,
+      "full_name": "oss-slu/shelter_volunteers",
+      "html_url": "https://github.com/oss-slu/shelter_volunteers",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T22:04:06Z",
+      "access": "read",
+      "protection_source": "Classic",
+      "classic": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "rulesets": null,
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": null,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": false
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 8,
+      "rulesets_meta": [],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": null,
+        "approval_rule_in_force_since": null,
+        "direct_pushes": 9,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-16",
+          "2026-09-27",
+          "2026-09-28",
+          "2026-09-29",
+          "2026-10-01",
+          "2026-10-21",
+          "2026-10-26",
+          "2026-11-07"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 29,
+        "unapproved_merges": 13,
+        "unapproved_pr_numbers": [
+          427,
+          429,
+          440,
+          446,
+          449,
+          452,
+          453,
+          467,
+          468,
+          470,
+          471,
+          472,
+          473
+        ]
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Bind admins to the rules: turn on \u201cDo not allow bypassing the above settings\u201d so admins cannot push or merge without a review",
+        "Confirm stale-approval dismissal is on (only repo admins can see this setting)",
+        "Code owner review is required but there is no CODEOWNERS file, so the requirement has no effect; add one",
+        "Require the repository's CI checks to pass before merging (8 active workflow(s), none required)"
+      ],
+      "observations": [
+        "9 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "13 PR(s) merged without an approval from someone other than the author (#427, #429, #440, #446, #449, #452, #453, #467, #468, #470 and 3 more)"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "TheHealthApp",
+      "exists": true,
+      "full_name": "oss-slu/TheHealthApp",
+      "html_url": "https://github.com/oss-slu/TheHealthApp",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-13T08:40:14Z",
+      "access": "read",
+      "protection_source": "Ruleset",
+      "classic": null,
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": false,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          24595043
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": false,
+        "code_owner_review": true,
+        "force_push_blocked": true,
+        "deletion_blocked": true,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": true,
+        "error_count": 0
+      },
+      "workflow_count": 1,
+      "rulesets_meta": [
+        {
+          "id": 24595043,
+          "name": "TheHealthApp",
+          "source_type": "Repository",
+          "source": "oss-slu/TheHealthApp",
+          "enforcement": "active",
+          "created_at": "2026-10-06T12:04:39.872-05:00",
+          "updated_at": "2026-10-06T12:04:39.938-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-10-06T17:04:39Z",
+        "approval_rule_in_force_since": "2026-10-06T17:04:39Z",
+        "confirmed_bypass_pushes": 0,
+        "direct_pushes": 2,
+        "bot_pushes": 0,
+        "force_pushes": 2,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-09-29",
+          "2026-10-06"
+        ],
+        "force_push_dates": [
+          "2026-10-06"
+        ],
+        "pr_merges": 36,
+        "unapproved_merges": 11,
+        "unapproved_pr_numbers": [
+          132,
+          140,
+          141,
+          142,
+          209,
+          212,
+          217,
+          220,
+          221,
+          222,
+          223
+        ],
+        "confirmed_bypass_merges": 7
+      },
+      "collection_errors": [],
+      "verdict": "PASS",
+      "baseline_gaps": [],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Dismiss stale approvals when new commits are pushed",
+        "Require the repository's CI checks to pass before merging (1 active workflow(s), none required)"
+      ],
+      "observations": [
+        "2 direct push(es) to `main` by people since 2026-08-01, without a pull request",
+        "2 force push(es) to `main` since 2026-08-01",
+        "11 PR(s) merged without an approval from someone other than the author (#132, #140, #141, #142, #209, #212, #217, #220, #221, #222 and 1 more); 7 merged after the approval ruleset was last changed on 2026-10-06"
+      ],
+      "unreviewed_changes": true
+    },
+    {
+      "repo": "TULIP",
+      "exists": true,
+      "full_name": "oss-slu/TULIP",
+      "html_url": "https://github.com/oss-slu/TULIP",
+      "default_branch": "main",
+      "archived": false,
+      "active": true,
+      "pushed_at": "2026-11-12T22:50:27Z",
+      "access": "read",
+      "protection_source": "Ruleset",
+      "classic": null,
+      "rulesets": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": false,
+        "force_push_blocked": false,
+        "deletion_blocked": false,
+        "status_checks": [],
+        "admins_enforced": null,
+        "ruleset_ids": [
+          20818704
+        ]
+      },
+      "effective": {
+        "pr_required": true,
+        "required_reviews": 1,
+        "dismiss_stale": true,
+        "code_owner_review": false,
+        "force_push_blocked": false,
+        "deletion_blocked": false,
+        "status_checks": [],
+        "admins_enforced": null
+      },
+      "codeowners": {
+        "present": false,
+        "error_count": 0
+      },
+      "workflow_count": 1,
+      "rulesets_meta": [
+        {
+          "id": 20818704,
+          "name": "PR restrictions",
+          "source_type": "Repository",
+          "source": "oss-slu/TULIP",
+          "enforcement": "active",
+          "created_at": "2026-08-13T16:01:59.495-05:00",
+          "updated_at": "2026-08-24T22:37:46.606-05:00"
+        }
+      ],
+      "practice": {
+        "activity_visible": true,
+        "prs_visible": true,
+        "review_rule_in_force_since": "2026-08-25T03:37:46Z",
+        "approval_rule_in_force_since": "2026-08-25T03:37:46Z",
+        "confirmed_bypass_pushes": 8,
+        "direct_pushes": 25,
+        "bot_pushes": 0,
+        "force_pushes": 0,
+        "branch_deletions": 0,
+        "direct_push_dates": [
+          "2026-08-12",
+          "2026-08-13",
+          "2026-08-18",
+          "2026-08-22",
+          "2026-09-01",
+          "2026-09-29",
+          "2026-10-08",
+          "2026-10-26"
+        ],
+        "force_push_dates": [],
+        "pr_merges": 14,
+        "unapproved_merges": 6,
+        "unapproved_pr_numbers": [
+          2,
+          3,
+          5,
+          8,
+          9,
+          18
+        ],
+        "confirmed_bypass_merges": 3
+      },
+      "collection_errors": [],
+      "verdict": "FAIL",
+      "baseline_gaps": [
+        "Block force pushes",
+        "Block deletion of `main`"
+      ],
+      "recommendations": [
+        "Unreviewed changes got past the rules: check who can bypass them (\u201cDo not allow bypassing the above settings\u201d in classic rules, the bypass list in rulesets) and remove that bypass",
+        "Add a CODEOWNERS file so reviews route to the project's tech lead",
+        "Require the repository's CI checks to pass before merging (1 active workflow(s), none required)"
+      ],
+      "observations": [
+        "25 direct push(es) to `main` by people since 2026-08-01, without a pull request; 8 came after the pull request ruleset was last changed on 2026-08-25, so they went around a rule already in force (check the ruleset's bypass list)",
+        "6 PR(s) merged without an approval from someone other than the author (#2, #3, #5, #8, #9, #18); 3 merged after the approval ruleset was last changed on 2026-08-25"
+      ],
+      "unreviewed_changes": true
+    }
+  ]
+}
