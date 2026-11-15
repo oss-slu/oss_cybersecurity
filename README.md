@@ -19,6 +19,7 @@ Below is an outline of where you can find specific security information.
 
 All of our publicly available security and compliance documentation will be available on our [website](https://oss-slu.github.io/oss_cybersecurity/). We will provide a timeline of when to expect that when we get closer to releasing it. See [`docs/security_controls_inventory.md`](docs/security_controls_inventory.md).
 
+- **[White Paper: Governing Open Source on a Semester Clock](docs/white_papers/cybersecurity_governance_white_paper.md)** – A cybersecurity governance model for university open-source programs (roles, policy tiers, semester lifecycle, exceptions, metrics, Spring 2027 roadmap), built on evidence from this semester's audits.
 - **[Dependency Pinning and Deterministic Lockfile Guide](docs/standards/dependency-pinning-guide.md)** – Mandatory supply chain standard, CI linters, and ecosystem conventions for deterministic package locking across Python, Node.js, Rust, and Go.
 - **[Branch Protection Guide](docs/standards/branch-protection-guide.md)** – Baseline protection for every project's default branch, an importable ruleset, and step-by-step fixes for project leads and students.
 - **[Branch Protection Compliance Matrix — Fall 2026](docs/audits/branch_protection_compliance_matrix_fall2026.md)** – Audit of the 22 candidate repositories, comparing configured settings with what actually reached `main`. Re-checked weekly by `scripts/audit_branch_protection.py`.
