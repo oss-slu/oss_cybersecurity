@@ -147,7 +147,7 @@ class CliTests(unittest.TestCase):
             a.write_text(json.dumps(old) if isinstance(old, dict) else old)
             b.write_text(json.dumps(new))
             out = Path(tmp) / "drift.md"
-            code = cfdiff.main([str(a), str(b), "-o", str(out), *extra])
+            code = cfdiff.main([str(a), str(b), "-o", str(out), *extra], root=tmp)
             return code, (out.read_text() if out.exists() else "")
 
     def test_exit_codes(self):
@@ -156,6 +156,21 @@ class CliTests(unittest.TestCase):
         self.assertEqual(self.run_cli(old, new)[0], 0)
         self.assertEqual(self.run_cli(old, new, "--fail-on-regression")[0], 3)
         self.assertEqual(self.run_cli(old, old, "--fail-on-regression")[0], 0)
+
+    def test_refuses_paths_outside_the_root(self):
+        with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as elsewhere:
+            good = Path(tmp) / "s.json"
+            good.write_text(json.dumps(snapshot("t1", r=[])))
+            outside = Path(elsewhere) / "s.json"
+            outside.write_text(good.read_text())
+            self.assertEqual(cfdiff.main([str(good), str(good), "-o", str(Path(tmp) / "d.md")], root=tmp), 0)
+            self.assertEqual(cfdiff.main([str(outside), str(good)], root=tmp), 1)
+            self.assertEqual(cfdiff.main([str(good), str(good), "-o", str(Path(elsewhere) / "d.md")], root=tmp), 1)
+            self.assertEqual(cfdiff.main([str(good), str(good), "-o", "../escape.md"], root=tmp), 1)
+            self.assertFalse((Path(elsewhere) / "d.md").exists())
+            with self.assertRaises(cfdiff.SnapshotError):
+                cfdiff.safe_path("../../etc/passwd", tmp)
+            self.assertEqual(cfdiff.safe_path("sub/x.json", tmp), str(Path(tmp).resolve() / "sub" / "x.json"))
 
     def test_rejects_wrong_schema_and_bad_json(self):
         good = snapshot("t1", r=[])

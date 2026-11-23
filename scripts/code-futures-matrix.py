@@ -12,6 +12,9 @@ The counts are an index for finding your place in a report. They are not a score
 
 Requires Python 3.9+. Standard library only.
 
+The snapshot, fill, candidates and output paths must be inside this repository.
+Relative paths are resolved against the repository root.
+
 Usage:
   python3 scripts/code-futures-matrix.py SNAPSHOT.json
   python3 scripts/code-futures-matrix.py SNAPSHOT.json --fill NEWER.json \\
@@ -31,11 +34,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from pathlib import Path
 from typing import Any, Optional
 
+REPO_ROOT = str(Path(__file__).resolve().parent.parent)
 SCHEMA = "code-futures/v1"
 OUTCOMES = ("enforced", "present", "absent", "unreadable")
 DEFAULT_CANDIDATES = Path(__file__).resolve().parent / "branch_protection_candidates.txt"
@@ -45,16 +50,39 @@ THEN_RE = re.compile(r"^1\. \*\*(.+?)\*\*", re.MULTILINE)
 NOTHING = "Nothing in this report needs action"
 
 
-def load_snapshot(path: Path) -> dict[str, Any]:
-    data = json.loads(Path(path).read_text(encoding="utf-8"))
+def safe_path(path: Any, root: Optional[str] = None) -> str:
+    """Resolve a path given on the command line and refuse anything outside the repository.
+
+    Relative paths are resolved against the repository root. The scripts only ever need
+    files inside the repository, so a path that resolves elsewhere is an error.
+    """
+    base = os.path.realpath(root or REPO_ROOT)
+    resolved = os.path.realpath(os.path.join(base, str(path)))
+    if resolved != base and not resolved.startswith(base + os.sep):
+        raise ValueError(f"{path}: path must be inside {base}")
+    return resolved
+
+
+def read_text(path: Any, root: Optional[str] = None) -> str:
+    with open(safe_path(path, root), encoding="utf-8") as fh:
+        return fh.read()
+
+
+def write_text(path: Any, text: str, root: Optional[str] = None) -> None:
+    with open(safe_path(path, root), "w", encoding="utf-8") as fh:
+        fh.write(text)
+
+
+def load_snapshot(path: Any, root: Optional[str] = None) -> dict[str, Any]:
+    data = json.loads(read_text(path, root))
     if not isinstance(data, dict) or data.get("schema") != SCHEMA or not isinstance(data.get("reports"), list):
         raise ValueError(f"{path}: not a {SCHEMA} snapshot")
     return data
 
 
-def load_candidates(path: Path) -> list[str]:
+def load_candidates(path: Any, root: Optional[str] = None) -> list[str]:
     names = []
-    for line in Path(path).read_text(encoding="utf-8").splitlines():
+    for line in read_text(path, root).splitlines():
         name = line.split("#", 1)[0].strip()
         if name:
             names.append(name)
@@ -172,7 +200,7 @@ def render_table(rows: list[dict[str, Any]]) -> str:
     return "\n".join(out) + "\n"
 
 
-def main(argv: Optional[list[str]] = None) -> int:
+def main(argv: Optional[list[str]] = None, root: Optional[str] = None) -> int:
     ap = argparse.ArgumentParser(description="Per-repository practice table from a Code Futures snapshot.")
     ap.add_argument("snapshot", type=Path)
     ap.add_argument("--fill", type=Path, help="snapshot used only for candidates missing from SNAPSHOT")
@@ -183,20 +211,20 @@ def main(argv: Optional[list[str]] = None) -> int:
     args = ap.parse_args(argv)
     try:
         rows = build_rows(
-            load_candidates(args.candidates),
-            load_snapshot(args.snapshot),
-            load_snapshot(args.fill) if args.fill else None,
+            load_candidates(args.candidates, root),
+            load_snapshot(args.snapshot, root),
+            load_snapshot(args.fill, root) if args.fill else None,
             parse_renames(args.rename),
             args.reports,
         )
+        table = render_table(rows)
+        if args.output:
+            write_text(args.output, table, root)
+        else:
+            sys.stdout.write(table)
     except (OSError, ValueError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
-    table = render_table(rows)
-    if args.output:
-        args.output.write_text(table, encoding="utf-8")
-    else:
-        sys.stdout.write(table)
     return 0
 
 

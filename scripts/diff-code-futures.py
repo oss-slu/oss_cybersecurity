@@ -24,6 +24,9 @@ Three rules come from the Code Futures schema and are easy to get wrong:
 
 Requires Python 3.9+. Standard library only.
 
+Every path given on the command line must be inside this repository. Relative paths
+are resolved against the repository root.
+
 Usage:
   python3 scripts/diff-code-futures.py OLD.json NEW.json              # Markdown to stdout
   python3 scripts/diff-code-futures.py OLD.json NEW.json -o drift.md
@@ -40,10 +43,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from typing import Any, Optional
 
+REPO_ROOT = str(Path(__file__).resolve().parent.parent)
 SCHEMA = "code-futures/v1"
 OUTCOMES = ("enforced", "present", "absent", "unreadable")
 
@@ -61,13 +66,36 @@ class SnapshotError(ValueError):
     """The file is not a usable code-futures/v1 snapshot."""
 
 
+def safe_path(path: Any, root: Optional[str] = None) -> str:
+    """Resolve a path given on the command line and refuse anything outside the repository.
+
+    Relative paths are resolved against the repository root. The scripts only ever need
+    files inside the repository, so a path that resolves elsewhere is an error.
+    """
+    base = os.path.realpath(root or REPO_ROOT)
+    resolved = os.path.realpath(os.path.join(base, str(path)))
+    if resolved != base and not resolved.startswith(base + os.sep):
+        raise SnapshotError(f"{path}: path must be inside {base}")
+    return resolved
+
+
+def read_text(path: Any, root: Optional[str] = None) -> str:
+    with open(safe_path(path, root), encoding="utf-8") as fh:
+        return fh.read()
+
+
+def write_text(path: Any, text: str, root: Optional[str] = None) -> None:
+    with open(safe_path(path, root), "w", encoding="utf-8") as fh:
+        fh.write(text)
+
+
 def is_inverted(probe_id: str) -> bool:
     return probe_id in INVERTED_IDS or probe_id.startswith(INVERTED_PREFIXES)
 
 
-def load_snapshot(path: Path) -> dict[str, Any]:
+def load_snapshot(path: Any, root: Optional[str] = None) -> dict[str, Any]:
     try:
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        data = json.loads(read_text(path, root))
     except (OSError, json.JSONDecodeError) as exc:
         raise SnapshotError(f"{path}: cannot read snapshot ({exc})") from exc
     if not isinstance(data, dict) or data.get("schema") != SCHEMA:
@@ -266,7 +294,7 @@ def render_markdown(d: dict[str, Any]) -> str:
     return "\n".join(lines).rstrip() + "\n"
 
 
-def main(argv: Optional[list[str]] = None) -> int:
+def main(argv: Optional[list[str]] = None, root: Optional[str] = None) -> int:
     ap = argparse.ArgumentParser(description="Compare two Code Futures snapshots and report practice drift.")
     ap.add_argument("old", type=Path, help="older snapshot (code-futures/v1 JSON)")
     ap.add_argument("new", type=Path, help="newer snapshot (code-futures/v1 JSON)")
@@ -282,18 +310,22 @@ def main(argv: Optional[list[str]] = None) -> int:
     args = ap.parse_args(argv)
 
     try:
-        drift = diff_snapshots(load_snapshot(args.old), load_snapshot(args.new), parse_renames(args.rename))
+        drift = diff_snapshots(load_snapshot(args.old, root), load_snapshot(args.new, root), parse_renames(args.rename))
     except SnapshotError as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 
     md = render_markdown(drift)
-    if args.output:
-        args.output.write_text(md, encoding="utf-8")
-    else:
-        sys.stdout.write(md)
-    if args.json_out:
-        args.json_out.write_text(json.dumps(drift, indent=2) + "\n", encoding="utf-8")
+    try:
+        if args.output:
+            write_text(args.output, md, root)
+        else:
+            sys.stdout.write(md)
+        if args.json_out:
+            write_text(args.json_out, json.dumps(drift, indent=2) + "\n", root)
+    except (OSError, SnapshotError) as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     return 3 if args.fail_on_regression and drift["regressed"] else 0
 
 

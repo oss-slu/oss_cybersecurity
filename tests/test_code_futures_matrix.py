@@ -65,7 +65,23 @@ class MatrixTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             f = Path(tmp, "c.txt")
             f.write_text("# header\n\ncivickit\ncore_desk   # listed as CoreDesk\n")
-            self.assertEqual(cfmatrix.load_candidates(f), ["civickit", "core_desk"])
+            self.assertEqual(cfmatrix.load_candidates(f, tmp), ["civickit", "core_desk"])
+
+    def test_refuses_paths_outside_the_root(self):
+        import json
+
+        with tempfile.TemporaryDirectory() as tmp, tempfile.TemporaryDirectory() as elsewhere:
+            Path(tmp, "c.txt").write_text("geo-enricher\n")
+            Path(tmp, "s.json").write_text(json.dumps(BASE))
+            Path(elsewhere, "s.json").write_text(json.dumps(BASE))
+            ok = ["s.json", "--candidates", "c.txt", "--rename", "enroll-dash=geo-enricher"]
+            self.assertEqual(cfmatrix.main(ok + ["-o", "t.md"], root=tmp), 0)
+            self.assertIn("| `geo-enricher` | 1 | 1 | 1 | 1 | 4 |", Path(tmp, "t.md").read_text())
+            self.assertEqual(cfmatrix.main([str(Path(elsewhere, "s.json")), "--candidates", "c.txt"], root=tmp), 1)
+            self.assertEqual(cfmatrix.main(ok + ["-o", str(Path(elsewhere, "t.md"))], root=tmp), 1)
+            self.assertFalse(Path(elsewhere, "t.md").exists())
+            with self.assertRaises(ValueError):
+                cfmatrix.safe_path("../x", tmp)
 
 
 if __name__ == "__main__":
